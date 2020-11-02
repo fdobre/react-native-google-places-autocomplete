@@ -639,8 +639,16 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
     );
   };
 
+  // NOTE: this is the old buggy code that hides the list too early
+  // const _onBlur = () => {
+  //   setListViewDisplayed(false);
+  //   inputRef?.current?.blur();
+  // };
+
   const _onBlur = () => {
-    setListViewDisplayed(false);
+    setTimeout(()=>{
+      setListViewDisplayed(false);
+    }, 200);
     inputRef?.current?.blur();
   };
 
